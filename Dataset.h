@@ -4,7 +4,10 @@
 #include <iostream>
 #include <vector>
 #include <random>
-#include "src/FlyFish.h"
+#include <flyfish/FlyFish.h>
+
+using flyfish::Vector;
+using flyfish::TriVector;
 
 struct AccuracyReport
 {
@@ -32,6 +35,9 @@ public:
 
     [[nodiscard]] int GetTrainingSize() const { return trainingData.size(); }
     [[nodiscard]] int GetTestDataSize() const { return testData.size(); }
+
+    [[nodiscard]] const std::vector<std::pair<TriVector, bool>>& GetTrainingData() const { return trainingData; }
+    [[nodiscard]] const std::vector<std::pair<TriVector, bool>>& GetTestData() const { return testData; }
 
     void ReportAccuracy() const;
 private:
