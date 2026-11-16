@@ -38,13 +38,14 @@ public:
 
     [[nodiscard]] const std::vector<std::pair<TriVector, bool>>& GetTrainingData() const { return trainingData; }
     [[nodiscard]] const std::vector<std::pair<TriVector, bool>>& GetTestData() const { return testData; }
+    [[nodiscard]] const Vector& GetDecisionPlane() const { return decisionPlane; }
 
     void ReportAccuracy() const;
 private:
     [[nodiscard]] static PredictionReport Predictions(const std::vector<std::pair<TriVector, bool>>& input, const Vector& decisionPlane);
     [[nodiscard]] static AccuracyReport Accuracy(const std::vector<std::pair<TriVector, bool>>& input, const Vector& decisionPlane);
 
-    Vector decisionPlane{1, 1, 1, 0};
+    Vector decisionPlane{-100.f, 1, 1, 0};
     std::vector<std::pair<TriVector, bool>> trainingData{};
     std::vector<std::pair<TriVector, bool>> testData{};
 
